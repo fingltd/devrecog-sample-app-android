@@ -23,7 +23,7 @@ import com.overlook.android.fingkit.FingScanner;
  */
 public class LicenseFragment extends Fragment {
 
-    public static final String TAG = "license";
+    private static final String TAG = "license";
 
     private View rootView;
     private EditText licenseKeyEditor;
@@ -39,7 +39,7 @@ public class LicenseFragment extends Fragment {
         setHasOptionsMenu(true);
 
         licenseKeyEditor = rootView.findViewById(R.id.edittext_license_key);
-        licenseKeyEditor.setText("Please insert your license key...");
+        licenseKeyEditor.setText("");
         output = rootView.findViewById(R.id.textview_output);
         return rootView;
     }
@@ -95,7 +95,8 @@ public class LicenseFragment extends Fragment {
                 output.setText(s);
                 Log.wtf(TAG, s);
             } else {
-                output.setText("Error:" + e.getMessage());
+                final String errorText = "Error:" + e.getMessage();
+                output.setText(errorText);
                 Log.wtf(TAG, "Error", e);
             }
         };
