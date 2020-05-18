@@ -6,6 +6,9 @@ Table of contents
 - [Description](#Description)
 - [Dependencies](#Dependencies)
 - [Build](#Build)
+- [Resources](#Resources)
+- [Authors](#Authors)
+- [License](#License)
 
 Description
 ------------
@@ -21,7 +24,7 @@ compatible with Android 5.0 and above.
 The following dependencies should be added in your Gradle-based or Maven-based project.
 
 __Fing SDK requires a license key to work. [Create a trial license](https://app.fing.com/internet/business/devrecog/trial) 
-or [contact us](mailto:sales@fing.com) to get a valid key.
+or [contact us](mailto:sales@fing.com) to get a valid key.__
 
 Dependencies
 -----
@@ -68,14 +71,20 @@ dependencies {
 }
 ```
 
-Current Version
+Resources
 ---------------
+
+### Current Version
 
 |           | Version |
 | --------- | ------- |
 | Fing SDK  | 2.5.0   |
 
-Creators
+### Latest Doc
+
+[Fing Mobile SDK]("https://get.fing.com/fing-business/devrecog/documentation/Fing_Mobile_SDK.pdf")
+
+Authors
 --------
 
 **Project Owner**
@@ -87,6 +96,7 @@ Creators
 - Daniele Pantaleone (daniele at fing.com)
 - Tommaso Latini (tommaso at fing.com)
 
-## License
+License
+-------
 
 Code released under the [MIT License](https://github.com/fingltd/devrecog-sample-app-android/blob/master/LICENSE).
