@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">FingKit</string>
+    <string name="action_verify">Verify</string>
+    <string name="action_attach">Attach</string>
+    <string name="action_detach">Detach</string>
+    <string name="action_account_info">Info</string>
+    <string name="action_network_info">Info</string>
+    <string name="action_scan">Scan</string>
+    <string name="action_stop">Stop</string>
+
+    <string name="enter_license_key">Please enter a license key</string>
+    <string name="enter_account_id">User ID</string>
+    <string name="enter_account_name">User full name</string>
+    <string name="enter_account_email">User email</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+</resources>
