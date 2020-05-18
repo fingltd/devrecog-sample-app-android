@@ -64,7 +64,6 @@ dependencies {
   }
   implementation 'androidx.appcompat:appcompat:1.1.0'
   implementation 'com.google.android.gms:play-services-analytics:17.0.0'
-  //noinspection GradleDependency
   implementation 'com.google.protobuf:protobuf-java:2.6.1'
   Implementation 'com.squareup.okhttp3:okhttp:4.2.0'
   implementation 'org.snmp4j:snmp4j:2.5.0'
@@ -82,7 +81,7 @@ Resources
 
 ### Latest Doc
 
-[Fing Mobile SDK]("https://get.fing.com/fing-business/devrecog/documentation/Fing_Mobile_SDK.pdf")
+[Fing Mobile SDK](https://get.fing.com/fing-business/devrecog/documentation/Fing_Mobile_SDK.pdf)
 
 Authors
 --------
