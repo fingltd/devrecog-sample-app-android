@@ -1,7 +1,6 @@
 ![Fing](app/src/main/res/mipmap-xxhdpi/ic_launcher.png)
 
-Table of contents
------------------
+# Table of contents
 
 - [Description](#Description)
 - [Dependencies](#Dependencies)
@@ -10,8 +9,8 @@ Table of contents
 - [Authors](#Authors)
 - [License](#License)
 
-Description
-------------
+# Description
+
 This folder contains the sample project for an Android App containing the functionalities
 provided by the [Fing SDK](https://app.fing.com/internet/business/devrecog/documentation) for network scanning and device recognition.
 
@@ -26,8 +25,8 @@ The following dependencies should be added in your Gradle-based or Maven-based p
 __Fing SDK requires a license key to work. [Create a trial license](https://app.fing.com/internet/business/devrecog/trial) 
 or [contact us](mailto:sales@fing.com) to get a valid key.__
 
-Dependencies
------
+# Dependencies
+
 |       Group            | Name                    | Version
 | ---------------------- | ----------------------- | --------
 | androidx.appcompat     | appcompat               | 1.1.0
@@ -41,8 +40,7 @@ of the Android app source code, (e.g. if your source code is in <root/app/src>, 
 the library in <root/app/libs>) and it will be added as transitive compilation item in
 your build system.
 
-Build
------
+# Build
 
 Android Studio automatically includes the framework in the final package. Below is an
 excerpt of a Gradle build module that includes the library in the build system.
@@ -65,26 +63,24 @@ dependencies {
   implementation 'androidx.appcompat:appcompat:1.1.0'
   implementation 'com.google.android.gms:play-services-analytics:17.0.0'
   implementation 'com.google.protobuf:protobuf-java:2.6.1'
-  Implementation 'com.squareup.okhttp3:okhttp:4.2.0'
+  Implementation 'com.squareup.okhttp3:okhttp:4.8.0'
   implementation 'org.snmp4j:snmp4j:2.5.0'
 }
 ```
 
-Resources
----------------
+# Resources
 
-### Current Version
+## Current Version
 
 |           | Version |
 | --------- | ------- |
 | Fing SDK  | 2.5.0   |
 
-### Latest Doc
+## Latest Doc
 
 [Fing Mobile SDK](https://get.fing.com/fing-business/devrecog/documentation/Fing_Mobile_SDK.pdf)
 
-Authors
---------
+# Authors
 
 **Project Owner**
 
@@ -95,7 +91,6 @@ Authors
 - Daniele Pantaleone (daniele at fing.com)
 - Tommaso Latini (tommaso at fing.com)
 
-License
--------
+# License
 
 Code released under the [MIT License](https://github.com/fingltd/devrecog-sample-app-android/blob/master/LICENSE).
