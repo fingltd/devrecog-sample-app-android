@@ -33,8 +33,8 @@ Dependencies
 | androidx.appcompat     | appcompat               | 1.1.0
 | com.google.android.gms | play-services-analytics | 17.0.0
 | com.google.protobuf    | protobuf-java           | 2.6.1
-| org.snmp4j             | snmp4j                  | 2.5.0 
-| com.squareup.okhttp3   | okhttp                  | 4.2.0
+| com.squareup.okhttp3   | okhttp                  | 4.8.0
+| org.snmp4j             | snmp4j                  | 2.5.0
 
 The archive fing-kit.aar should be placed locally in a folder placed at the same level
 of the Android app source code, (e.g. if your source code is in <root/app/src>, place
