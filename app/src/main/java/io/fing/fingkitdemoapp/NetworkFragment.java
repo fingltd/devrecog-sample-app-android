@@ -15,29 +15,27 @@ import androidx.fragment.app.Fragment;
 
 import com.overlook.android.fingkit.FingScanner;
 
-/**
- * A placeholder fragment containing a simple view.
- */
+@SuppressWarnings("FieldCanBeLocal")
 public class NetworkFragment extends Fragment {
 
-    public static final String TAG = "network";
+    public static final String TAG = "fingk-kit:network";
 
-    private View rootView;
-    private TextView output;
+    private View mRootView;
+    private TextView mOutput;
 
-    public NetworkFragment() {
-    }
+    public NetworkFragment() { }
+
+    // --------------------------------
+    // FRAGMENT LICEFYCLE
+    // --------------------------------
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        rootView = inflater.inflate(R.layout.fragment_network, container, false);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         setHasOptionsMenu(true);
-
-        output = (TextView) rootView.findViewById(R.id.textview_output);
-        return rootView;
+        mRootView = inflater.inflate(R.layout.fragment_network, container, false);
+        mOutput = mRootView.findViewById(R.id.textview_output);
+        return mRootView;
     }
-
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
@@ -67,13 +65,18 @@ public class NetworkFragment extends Fragment {
         return super.onOptionsItemSelected(item);
     }
 
+    // --------------------------------
+    // ACTIONS
+    // --------------------------------
+
     private void onNetworkInfo() {
-        final FingScanner scanner = FingScanner.getInstance();
+        FingScanner scanner = FingScanner.getInstance();
         if (!scanner.isConnected()) {
-            Log.wtf(TAG, "Not connected. Connecting now...");
+            Log.d(TAG, "Not connected. Connecting now...");
             scanner.connect(getContext(), (s, e) -> {
-                if (e == null)
+                if (e == null) {
                     doNetworkInfo(scanner);
+                }
             });
         } else {
             doNetworkInfo(scanner);
@@ -81,33 +84,32 @@ public class NetworkFragment extends Fragment {
     }
 
     private void onNetworkScan() {
-        final FingScanner scanner = FingScanner.getInstance();
+        FingScanner scanner = FingScanner.getInstance();
         if (!scanner.isConnected()) {
-            Log.wtf(TAG, "Not connected. Connecting now...");
+            Log.d(TAG, "Not connected. Connecting now...");
             scanner.connect(getContext(), (s, e) -> {
-                if (e == null)
+                if (e == null) {
                     doNetworkScan(scanner);
+                }
             });
         } else {
             doNetworkScan(scanner);
         }
     }
 
-
     private void onNetworkStop() {
         final FingScanner scanner = FingScanner.getInstance();
         if (!scanner.isConnected()) {
-            Log.wtf(TAG, "Not connected. Connecting now...");
+            Log.d(TAG, "Not connected. Connecting now...");
             scanner.connect(getContext(), (s, e) -> {
-                if (e == null)
+                if (e == null) {
                     doNetworkStop(scanner);
+                }
             });
         } else {
             doNetworkStop(scanner);
         }
     }
-
-    // --------------------------------------------------------------------------------
 
     private void doNetworkInfo(final FingScanner scanner) {
         scanner.networkInfo(newResultDumper());
@@ -121,18 +123,19 @@ public class NetworkFragment extends Fragment {
         scanner.networkScanStop();
     }
 
+    // --------------------------------
+    // SCANNER RESULT CALLBACK
+    // --------------------------------
+
     @NonNull
     private FingScanner.FingResultCallback newResultDumper() {
-        return new FingScanner.FingResultCallback() {
-            @Override
-            public void handle(String s, Exception e) {
-                if (e == null) {
-                    output.setText(s);
-                    Log.wtf(TAG, s);
-                } else {
-                    output.setText("Error:" + e.getMessage());
-                    Log.wtf(TAG, "Error", e);
-                }
+        return (s, e) -> {
+            if (e == null) {
+                mOutput.setText(s);
+                Log.d(TAG, s);
+            } else {
+                mOutput.setText(String.format("Error: %s", e.getMessage()));
+                Log.e(TAG, "Error", e);
             }
         };
     }

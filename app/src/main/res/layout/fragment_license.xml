@@ -1,4 +1,5 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -13,15 +14,13 @@
         android:id="@+id/edittext_license_key"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/enter_license_key"
-        />
+        android:hint="@string/enter_license_key" />
 
     <TextView
         android:id="@+id/textview_output"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:maxLines="100"
-        android:fontFamily="monospace"
-        />
+        android:fontFamily="monospace" />
 
 </LinearLayout>

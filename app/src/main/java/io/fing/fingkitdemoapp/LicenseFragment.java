@@ -18,30 +18,28 @@ import androidx.fragment.app.Fragment;
 import com.google.android.material.snackbar.Snackbar;
 import com.overlook.android.fingkit.FingScanner;
 
-/**
- * A placeholder fragment containing a simple view.
- */
 public class LicenseFragment extends Fragment {
 
-    private static final String TAG = "license";
+    public static final String TAG = "fing-kit:license";
 
-    private View rootView;
-    private EditText licenseKeyEditor;
-    private TextView output;
+    private View mRootView;
+    private EditText mLicenseKeyEditor;
+    private TextView mOutput;
 
-    public LicenseFragment() {
-    }
+    public LicenseFragment() { }
+
+    // --------------------------------
+    // FRAGMENT LICEFYCLE
+    // --------------------------------
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        rootView = inflater.inflate(R.layout.fragment_license, container, false);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         setHasOptionsMenu(true);
-
-        licenseKeyEditor = rootView.findViewById(R.id.edittext_license_key);
-        licenseKeyEditor.setText("");
-        output = rootView.findViewById(R.id.textview_output);
-        return rootView;
+        mRootView = inflater.inflate(R.layout.fragment_license, container, false);
+        mLicenseKeyEditor = mRootView.findViewById(R.id.edittext_license_key);
+        mLicenseKeyEditor.setText("");
+        mOutput = mRootView.findViewById(R.id.textview_output);
+        return mRootView;
     }
 
     @Override
@@ -64,40 +62,47 @@ public class LicenseFragment extends Fragment {
         return super.onOptionsItemSelected(item);
     }
 
+    // --------------------------------
+    // ACTIONS
+    // --------------------------------
+
     private void doVerifyLicense() {
         final FingScanner scanner = FingScanner.getInstance();
         if (!scanner.isConnected()) {
-            Log.wtf(TAG, "Not connected. Connecting now...");
+            Log.d(TAG, "Not connected. Connecting now...");
             scanner.connect(getContext(), (s, e) -> {
-                if (e == null)
+                if (e == null) {
                     doValidateLicense(scanner);
+                }
             });
         } else {
-            Log.wtf(TAG, "Already connected. Checking license");
+            Log.d(TAG, "Already connected. Checking license");
             doValidateLicense(scanner);
         }
     }
 
     private void doValidateLicense(final FingScanner scanner) {
-        Editable text = licenseKeyEditor.getText();
+        Editable text = mLicenseKeyEditor.getText();
         if (text == null || text.toString().isEmpty()) {
-            Snackbar.make(rootView, R.string.enter_license_key, Snackbar.LENGTH_SHORT).show();
+            Snackbar.make(mRootView, R.string.enter_license_key, Snackbar.LENGTH_SHORT).show();
             return;
         }
-
         scanner.validateLicenseKey(text.toString(), null, newResultDumper());
     }
+
+    // --------------------------------
+    // SCANNER RESULT CALLBACK
+    // --------------------------------
 
     @NonNull
     private FingScanner.FingResultCallback newResultDumper() {
         return (s, e) -> {
             if (e == null) {
-                output.setText(s);
-                Log.wtf(TAG, s);
+                mOutput.setText(s);
+                Log.d(TAG, s);
             } else {
-                final String errorText = "Error:" + e.getMessage();
-                output.setText(errorText);
-                Log.wtf(TAG, "Error", e);
+                mOutput.setText(String.format("Error: %s", e.getMessage()));
+                Log.e(TAG, "Error", e);
             }
         };
     }
