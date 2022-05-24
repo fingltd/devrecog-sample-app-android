@@ -17,8 +17,10 @@ provided by the [Fing SDK](https://app.fing.com/internet/business/devrecog/docum
 The Fing SDK provides the core feature of the [Fing (Network Tools)](https://play.google.com/store/apps/details?id=com.overlook.android.fing) app for Android
 OS. It is available as an AAR (Android Archive) library, suitable to be used with the standard 
 development tools (Android Studio) and to be published on the official Play Store. 
-As a framework, it may also be used by applications written in Kotlin language. It is
-compatible with Android 5.0 and above. 
+
+As a framework, it may also be used by applications written in Kotlin language.
+
+It is compatible with Android 5.0 and above. 
 
 The following dependencies should be added in your Gradle-based or Maven-based project.
 
@@ -35,11 +37,6 @@ or [contact us](mailto:sales@fing.com) to get a valid key.__
 | com.squareup.okhttp3   | okhttp                  | 4.8.0
 | org.snmp4j             | snmp4j                  | 2.5.0
 
-The archive fing-kit.aar should be placed locally in a folder placed at the same level
-of the Android app source code, (e.g. if your source code is in <root/app/src>, place
-the library in <root/app/libs>) and it will be added as transitive compilation item in
-your build system.
-
 # Build
 
 Android Studio automatically includes the framework in the final package. Below is an
@@ -49,22 +46,20 @@ excerpt of a Gradle build module that includes the library in the build system.
 allprojects {
   repositories {
     jcenter()
-    flatDir {
-      dirs 'libs'
-    }
     google()
+    maven { url 'https://jitpack.io' }
   }
 }
 
 dependencies {
-  compile(name:'fing-kit', ext:'aar') {
-    transitive=true
-  }
-  implementation 'androidx.appcompat:appcompat:1.1.0'
-  implementation 'com.google.android.gms:play-services-analytics:17.0.0'
-  implementation 'com.google.protobuf:protobuf-java:2.6.1'
-  Implementation 'com.squareup.okhttp3:okhttp:4.8.0'
-  implementation 'org.snmp4j:snmp4j:2.5.0'
+    implementation(group: 'com.github.fingltd', name: 'devrecog', version:'2.5.2', ext: 'aar')
+    implementation(group: 'androidx.appcompat', name: 'appcompat', version:'1.1.0')
+    implementation(group: 'androidx.coordinatorlayout', name: 'coordinatorlayout', version:'1.1.0')
+    implementation(group: 'com.google.android.material', name: 'material', version:'1.1.0')
+    implementation(group: 'com.google.android.gms', name: 'play-services-analytics', version:'17.0.0')
+    implementation(group: 'com.google.protobuf', name: 'protobuf-java', version:'2.6.1')
+    implementation(group: 'com.squareup.okhttp3', name: 'okhttp', version:'4.8.0')
+    implementation(group: 'org.snmp4j', name: 'snmp4j', version:'2.5.0')
 }
 ```
 
@@ -72,13 +67,9 @@ dependencies {
 
 ## Current Version
 
-|           | Version |
-| --------- | ------- |
-| Fing SDK  | 2.5.0   |
-
-## Latest Doc
-
-[Fing Mobile SDK](https://get.fing.com/fing-business/devrecog/documentation/Fing_Mobile_SDK.pdf)
+|           | Version | Documentation
+| --------- | ------- | -------------
+| Fing SDK  | [![](https://jitpack.io/v/fingltd/devrecog.svg)](https://jitpack.io/#fingltd/devrecog) | [Doc](https://github.com/fingltd/devrecog/wiki/Fing-Android-SDK)
 
 # Authors
 
