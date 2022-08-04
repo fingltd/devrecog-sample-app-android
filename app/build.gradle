@@ -34,12 +34,5 @@ allprojects {
 }
 
 dependencies {
-    implementation(group: 'com.github.fingltd', name: 'devrecog-android-sdk', version:'0.1.2', ext: 'aar')
-    implementation(group: 'androidx.appcompat', name: 'appcompat', version:'1.1.0')
-    implementation(group: 'androidx.coordinatorlayout', name: 'coordinatorlayout', version:'1.1.0')
-    implementation(group: 'com.google.android.material', name: 'material', version:'1.1.0')
-    implementation(group: 'com.google.android.gms', name: 'play-services-analytics', version:'17.0.0')
-    implementation(group: 'com.google.protobuf', name: 'protobuf-java', version:'2.6.1')
-    implementation(group: 'com.squareup.okhttp3', name: 'okhttp', version:'4.8.0')
-    implementation(group: 'org.snmp4j', name: 'snmp4j', version:'2.5.0')
+    implementation 'com.github.fingltd:devrecog:2.5.3'
 }
