@@ -12,7 +12,7 @@
 # Description
 
 This folder contains the sample project for an Android App containing the functionalities
-provided by the [Fing SDK](https://app.fing.com/internet/business/devrecog/documentation) for network scanning and device recognition.
+provided by the Fing SDK for network scanning and device recognition.
 
 The Fing SDK provides the core feature of the [Fing (Network Tools)](https://play.google.com/store/apps/details?id=com.overlook.android.fing) app for Android
 OS. It is available as an AAR (Android Archive) library, suitable to be used with the standard 
