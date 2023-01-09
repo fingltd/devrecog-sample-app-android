@@ -1,13 +1,13 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 29
+    compileSdkVersion 31
     buildToolsVersion '28.0.3'
     useLibrary 'org.apache.http.legacy'
     defaultConfig {
         applicationId "io.fing.fingkitdemoapp"
         minSdkVersion 22
-        targetSdkVersion 29
+        targetSdkVersion 31
         multiDexEnabled true
         versionCode 2401
         versionName "2.4.2"
@@ -34,5 +34,13 @@ allprojects {
 }
 
 dependencies {
+    implementation(group: 'androidx.appcompat', name: 'appcompat', version:'1.1.0')
+    implementation(group: 'androidx.coordinatorlayout', name: 'coordinatorlayout', version:'1.1.0')
+    implementation(group: 'com.google.android.material', name: 'material', version:'1.1.0')
+    implementation(group: 'com.google.android.gms', name: 'play-services-analytics', version:'17.0.0')
+    implementation(group: 'com.google.protobuf', name: 'protobuf-java', version:'2.6.1')
+    implementation(group: 'com.squareup.okhttp3', name: 'okhttp', version:'4.8.0')
+    implementation(group: 'org.snmp4j', name: 'snmp4j', version:'2.5.0')
+
     implementation 'com.github.fingltd:devrecog:2.5.3'
 }
