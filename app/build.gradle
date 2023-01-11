@@ -42,5 +42,5 @@ dependencies {
     implementation(group: 'com.squareup.okhttp3', name: 'okhttp', version:'4.8.0')
     implementation(group: 'org.snmp4j', name: 'snmp4j', version:'2.5.0')
 
-    implementation 'com.github.fingltd:devrecog:2.5.3'
+    implementation 'com.github.fingltd:devrecog:2.6.1'
 }
