@@ -13,7 +13,11 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import com.overlook.android.fingkit.FingScanInput;
 import com.overlook.android.fingkit.FingScanner;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @SuppressWarnings("FieldCanBeLocal")
 public class NetworkFragment extends Fragment {
@@ -116,11 +120,31 @@ public class NetworkFragment extends Fragment {
     }
 
     private void doNetworkScan(final FingScanner scanner) {
-        scanner.networkScan(null, newResultDumper());
+        boolean useExternalInput = false;
+        if (useExternalInput)
+            scanner.networkScan(null, createMockInput(30), newResultDumper());
+        else
+            scanner.networkScan(null, newResultDumper());
     }
 
     private void doNetworkStop(final FingScanner scanner) {
         scanner.networkScanStop();
+    }
+
+    private FingScanInput createMockInput(int count) {
+        List<FingScanInput.FingScanDeviceEntry> table = new ArrayList<>();
+
+        for (int i = 0; i < count; i++) {
+            FingScanInput.FingScanDeviceEntry entry = new FingScanInput.FingScanDeviceEntry();
+            entry.setIpAddress("192.168.1." + i);
+            entry.setMacAddress("02:00:FF:00:00:" + Integer.toHexString(i));
+            table.add(entry);
+        }
+
+        FingScanInput input = new FingScanInput();
+        input.setDeviceEntries(table);
+
+        return input;
     }
 
     // --------------------------------
