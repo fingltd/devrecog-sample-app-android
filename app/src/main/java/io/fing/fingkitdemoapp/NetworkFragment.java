@@ -14,6 +14,8 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import com.overlook.android.fingkit.FingScanInput;
+import com.overlook.android.fingkit.FingScanOptions;
+import com.overlook.android.fingkit.FingScanResultLevel;
 import com.overlook.android.fingkit.FingScanner;
 
 import java.util.ArrayList;
@@ -120,9 +122,19 @@ public class NetworkFragment extends Fragment {
     }
 
     private void doNetworkScan(final FingScanner scanner) {
+
+        FingScanOptions options = new FingScanOptions();
+        options.setResultLevelScanInProgress(FingScanResultLevel.SUMMARY);
+        options.setResultLevelScanCompleted(FingScanResultLevel.FULL);
+        options.setBonjourEnabled(false);
+        options.setUpnpEnabled(false);
+        options.setNetbiosEnabled(false);
+        options.setSnmpEnabled(false);
+        options.setReverseDnsEnabled(false);
+
         boolean useExternalInput = false;
         if (useExternalInput)
-            scanner.networkScan(null, createMockInput(30), newResultDumper());
+            scanner.networkScan(options, createMockInput(30), newResultDumper());
         else
             scanner.networkScan(null, newResultDumper());
     }
